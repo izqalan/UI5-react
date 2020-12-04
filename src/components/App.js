@@ -48,6 +48,7 @@ const App = () => {
               }
                      
             }}
+            header={toggleCharts}
             avatar={ <Icon name={ toggleCharts === "lineChart" ? "line-chart" : "horizontal-bar-chart" } /> }
             children={toggleCharts === 'lineChart' ? <UI5LineChart /> : <UI5BarChart />}
           />

@@ -7,12 +7,13 @@ const ReactCard = (props) => {
 		avatar,
 		children,
 		handleClick,
+		header,
 	} = props;
 	return (
 		<div>
 			<Card 
 				avatar={avatar}
-				heading="card"
+				heading={header}
 				style={{ width: "500px", padding: "10px" }}
 				headerInteractive
 				onHeaderClick={handleClick}
