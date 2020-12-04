@@ -2,18 +2,23 @@ import React from 'react';
 import { Card, Text } from "@ui5/webcomponents-react";
 import { spacing } from "@ui5/webcomponents-react-base";
 
-const ReactCard = () => {
-	const handleHeaderClick = () => {
-		alert("header clicked");
-	}
+const ReactCard = (props) => {
+	const {
+		avatar,
+		children,
+		handleClick,
+	} = props;
 	return (
 		<div>
-			<Card heading="card"
-				style={{ width: "300px" }}
+			<Card 
+				avatar={avatar}
+				heading="card"
+				style={{ width: "500px", padding: "10px" }}
 				headerInteractive
-				onHeaderClick={handleHeaderClick}
+				onHeaderClick={handleClick}
 			>
 				<Text style={spacing.sapUiContentPadding} >We are on React.js baby!</Text>
+				{children}
 			</Card>
 		</div>
 	)
