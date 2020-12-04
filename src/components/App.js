@@ -6,8 +6,9 @@ import {
   Link,
   LinkDesign,
   ShellBar,
-  ThemeProvider
+  ThemeProvider,
 } from '@ui5/webcomponents-react';
+import ReactCard from '../components/common/ReactCard';
 import React from 'react';
 import '../styles/App.css';
 
@@ -21,6 +22,7 @@ function App() {
         justifyContent={FlexBoxJustifyContent.Center}
         alignItems={FlexBoxAlignItems.Center}
       >
+        <ReactCard />
         <Link href="https://sap.github.io/ui5-webcomponents-react/" target="_blank" design={LinkDesign.Emphasized}>
           Getting Started with UI5 Web Component for React
         </Link>
