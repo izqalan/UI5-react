@@ -8,12 +8,14 @@ const ReactCard = (props) => {
 		children,
 		handleClick,
 		header,
+		subHeadding,
 	} = props;
 	return (
 		<div>
 			<Card 
 				avatar={avatar}
 				heading={header}
+				subheading={subHeadding}
 				style={{ width: "500px", padding: "10px" }}
 				headerInteractive
 				onHeaderClick={handleClick}

@@ -19,6 +19,18 @@ import '@ui5/webcomponents-icons/dist/horizontal-bar-chart.js';
 
 const App = () => {
   const [toggleCharts, setToggleCharts] = useState("lineChart");
+  const handleOnClick = () => {
+    if (toggleCharts === "lineChart") {
+      setTimeout(() => {
+        setToggleCharts("barChart");
+      });
+    } else {
+      setTimeout(() => {
+        setToggleCharts("lineChart");
+      });
+    }
+  }
+  const switchToChart = toggleCharts === 'lineChart' ? 'Bar Chart' : 'Line Chart';
 
   return (
     <ThemeProvider>
@@ -36,28 +48,18 @@ const App = () => {
           alignItems={FlexBoxAlignItems.End}
         >
           <ReactCard
-            handleClick={() => {
-              if (toggleCharts === "lineChart") {
-                setTimeout(() => {
-                  setToggleCharts("barChart");
-                });
-              } else {
-                setTimeout(() => {
-                  setToggleCharts("lineChart");
-                });
-              }
-                     
-            }}
-            header={toggleCharts}
-            avatar={ <Icon name={ toggleCharts === "lineChart" ? "line-chart" : "horizontal-bar-chart" } /> }
+            handleClick={handleOnClick}
+            header="Stock Price"
+            subHeadding={`Click here to switch to ${switchToChart}`}
+            avatar={<Icon name={toggleCharts === "lineChart" ? "line-chart" : "horizontal-bar-chart"} />}
             children={toggleCharts === 'lineChart' ? <UI5LineChart /> : <UI5BarChart />}
           />
         </FlexBox>
-        {/* This flexbox behavior kinda sus */}
-        <Link href="https://sap.github.io/ui5-webcomponents-react/" target="_blank" design={LinkDesign.Emphasized}>
-          Getting Started with UI5 Web Component for React
+          {/* This flexbox behavior kinda sus */}
+          <Link href="https://sap.github.io/ui5-webcomponents-react/" target="_blank" design={LinkDesign.Emphasized}>
+            Getting Started with UI5 Web Component for React
         </Link>
-      </FlexBox>
+        </FlexBox>
     </ThemeProvider>
   );
 }
